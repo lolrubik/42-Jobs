@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/12 17:31:04 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:41:48 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 # define LIBFT_H
 
 #include <stddef.h>
+#include <stdlib.h>
 
 void	ft_bzero(void *s, size_t n);
 int ft_isalnum(char *str);
 int	ft_isalpha(char *str);
-int	ft_isascii(char *str);
+int	ft_isascii(int c);
 int	ft_isdigit(char *str);
 int	ft_isprint(char *str);
+int ft_atoi(const char *nptr);
 void *ft_memchr(const void *s, int c, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
 void *ft_memcpy(void *dest, const void *src, size_t n);

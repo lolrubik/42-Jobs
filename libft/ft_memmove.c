@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:12:01 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/12 17:31:08 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:37:29 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
     return (dest);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     char dest[] = "this is a test";
-    const char src[] = "is a test";
+    const char src[] = "this is is a test";
     ft_memmove(dest, src, 10);
     printf("%s", dest);
     return (0);
-}
+}*/

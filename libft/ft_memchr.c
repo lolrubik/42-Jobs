@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 12:48:13 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/13 11:06:46 by mmembril         ###   ########.fr       */
+/*   Created: 2024/09/12 12:12:56 by mmembril          #+#    #+#             */
+/*   Updated: 2024/09/13 11:49:32 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*s;
-	unsigned char		*d;
+	unsigned const char	*a;
 	int					i;
 
 	i = 0;
-	d = dest;
-	s = src;
-	while (n > 0)
+	a = s;
+	while (n > 0 && a[i])
 	{
-		d[i] = s[i];
+		if (a[i] == c)
+			return ((void *)s);
 		i++;
 		n--;
 	}
-	dest = d;
-	return (dest);
+	return (0);
 }
-
 /*#include <stdio.h>
 int main()
 {
-    char dest[] = "this is a test";
-    const char src[] = "is a test";
-    ft_memcpy(dest, src, 10);
-    printf("%s", dest);
+    char s[] = "holza mundo con z";
+    printf("%p", ft_memchr(s, 122, 5));
     return (0);
 }*/
