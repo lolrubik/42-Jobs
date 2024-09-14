@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:46:17 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/13 13:57:51 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:09:59 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,56 @@
 
 void *ft_calloc(size_t nmeb, size_t size)
 {
+    size_t j;
+
+    j = 0;
     if (nmeb <= 0 || size <= 0)
         return (0);
-    int *i = 4*((int *)malloc(sizeof(size)));
+    char *i = ((char *)malloc(sizeof(size * nmeb)));
     if (i == 0)
         return (0);
+    while (j < size)
+    {
+        i[j] = '\0';
+        j++;
+    }
     return ((void *)i);
 }
 
-int main()
+/*int main()
 {
-    size_t nmeb = 2;
-    ft_calloc(nmeb, 4);
-    free(nmeb);
+    char *ptr = (char *)ft_calloc(sizeof(int), 5);
+    printf("%s", ptr);
+    free(ptr);
+
+    return (0);
+}*/
+//main de prueba
+/*int main()
+{
+    char *str;
+    str = (char *)malloc(sizeof(char) * ft_strlen(str3));
+    printf("%c", str[0]);
+    str = (char *)calloc(sizeof(char), ft_strlen(str3));
+    printf("%c", str[0]);
+    void *ptr;
+    str = (int *)malloc(sizeof(int) * 5);
+    int a = (int)ptr;
+    printf("%d\n", a);
+    ++ptr;
+    printf("%d\n", (int)*ptr);
+    if (!str)
+        return (0);
+    char str2[6];
+    str2[0] = 'h' = 104;
+    str2[1] = 'e';
+    str2[2] = 'l';
+    str2[3] = 'l';
+    str2[4] = 'o';
+    str2[5] = '\0';
+
+    str = (char *)ft_calloc(5,sizeof(char));
+    str = "test1328888888888888888888";
+    printf("%s", str);
     return(0);
-}
+}*/
