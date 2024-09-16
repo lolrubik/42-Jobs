@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/14 12:17:13 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/16 22:02:41 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 void	ft_bzero(void *s, size_t n);
 int ft_isalnum(char *str);
@@ -38,6 +39,10 @@ char *ft_strnstr(const char *big, const char *little, size_t len);
 char *ft_strrchr(const char *s, int c);
 int ft_tolower(int c);
 int ft_toupper(int c);
+void *ft_calloc(size_t nmeb, size_t size);
+char *ft_strdup(const char *s);
+char *ft_substr(char const *s, unsigned int start, size_t len);
+
 
 #endif
 

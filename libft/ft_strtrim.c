@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 14:37:21 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/16 19:08:50 by marco            ###   ########.fr       */
+/*   Created: 2024/09/16 21:35:42 by marco             #+#    #+#             */
+/*   Updated: 2024/09/16 21:47:34 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_strtrim(char const *s1, char const *set)
 {
     int i;
+    int j;
 
     i = 0;
-    char *substr = (char *)malloc(sizeof(len));
-    if (substr == 0)
+    j = 0;
+    char *str = (char *)malloc(sizeof(s1) - sizeof(set));
+    if (!str)
         return (0);
-    if ((int)start >= ft_strlen((char *)s))
+    if (s1 == set)
         return (0);
-    while (s[start] && len > 0)
-    {
-        substr[i] = s[start + i];
+    while (s1[i] == set[i])
         i++;
-        len--;
+    while (s1[i])
+    {
+        str[j] = s1[i];
+        i++;
+        j++;
     }
-    return (substr);
+    return (str);
 }
 
 /*int main(void)
 {
-    printf ("%s", ft_substr("hola mundo", 2, 3));
+    char *p = ft_strtrim("hola mundo", "hola mudo");
+    printf ("%s", p);
     return (0);
 }*/
