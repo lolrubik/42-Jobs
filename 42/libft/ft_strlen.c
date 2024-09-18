@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:40:35 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/12 17:31:32 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:33:42 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strlen(char *str)
 /*#include <stdio.h>
 int main()
 {
-	char str[] = "hola ";
+	char str[] = "khjcvghuiocgyucgyuioc gyic ";
 	printf("%d", ft_strlen(str));
 	return (0);
 }*/

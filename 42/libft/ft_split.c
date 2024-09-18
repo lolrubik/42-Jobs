@@ -12,30 +12,31 @@
 
 #include "libft.h"
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    int i;
-    int j;
-    int x;
+	int	i;
+	int	j;
+	int	x;
+	char **str = (char **)malloc (sizeof(s));
 
-    i = 0;
-    j = 0;
-    x = 0;
-    char **str = (char **)malloc(sizeof(s));
-    while (s[x] != c)
-    {
-        str[i][j] = s[x];
-        x++;
-        j++;
-        if (s[x] == c)
-        {
-            str[i][j] = '\n';
-            i++;
-            j = 0;
-        }
-    }
-    return (str); 
+	i = 0;
+	j = 0;
+	x = 0;
+	while (s[x] != c)
+	{
+		str[i][j] = s[x];
+		x++;
+		j++;
+		if (s[x] == c)
+		{
+			str[i][j] = '\n';
+			i++;
+			j = 0;
+		}
+	}
+	return (str); 
 }
+/*
 int main(void)
 {
     int i = 0;
@@ -53,4 +54,4 @@ int main(void)
     }
     free (str);
     return (0);
-}
+}*/
