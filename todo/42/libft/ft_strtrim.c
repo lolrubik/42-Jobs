@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 21:35:42 by marco             #+#    #+#             */
-/*   Updated: 2024/09/16 21:47:34 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/20 19:28:12 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,36 @@
 
 char *ft_strtrim(char const *s1, char const *set)
 {
+    int end;
+    int beg;
     int i;
-    int j;
+    char *str;
 
     i = 0;
-    j = 0;
-    char *str = (char *)malloc(sizeof(s1) - sizeof(set));
-    if (!str)
-        return (0);
-    if (s1 == set)
-        return (0);
-    while (s1[i] == set[i])
-        i++;
-    while (s1[i])
+    beg = 0;
+    end = ft_strlen((char *)s1);
+    while (set[i] != '\0')
     {
-        str[j] = s1[i];
+        if (s1[beg] == set[i])
+        {
+            beg++;
+            i = -1;
+        }
+        if (s1[end - 1] == set[i])
+        {
+            end--;
+            i = -1;
+        }
         i++;
-        j++;
     }
+    str = ft_substr(s1, beg, (end - beg));
     return (str);
 }
 
-/*int main(void)
+int main(void)
 {
-    char *p = ft_strtrim("hola mundo", "hola mudo");
+    char *p = ft_strtrim("hola mundo", "odhn");
     printf ("%s", p);
+    free (p);
     return (0);
-}*/
+}
