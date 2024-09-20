@@ -16,14 +16,13 @@ char *ft_itoa(int n)
 {
     int i;
     
-    i = 0;
     if (n < 0)
     {
         n = -n;
-        i++;
+        i = 1;
     }
     char *str = (char *)malloc(sizeof(n));
-    if (i != 0)
+    if (i == 1)
         n = -n;
     str = n + "0";
     return (str);
@@ -31,8 +30,7 @@ char *ft_itoa(int n)
 
 int main(void)
 {
-    char *str = ft_itoa(65);
-    printf("%s", str);
-    free (str);
+    char *s = ft_itoa(100);
+    printf("%s", s);
     return (0);
 }

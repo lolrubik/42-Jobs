@@ -36,8 +36,8 @@ char	**ft_split(char const *s, char c)
 	}
 	return (str); 
 }
-/*
-int main(void)
+
+/*int main(void)
 {
     int i = 0;
     int j = 0;
