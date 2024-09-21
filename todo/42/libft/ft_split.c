@@ -3,45 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 21:47:43 by marco             #+#    #+#             */
-/*   Updated: 2024/09/16 22:06:21 by marco            ###   ########.fr       */
+/*   Created: 2024/09/21 12:27:24 by mmembril          #+#    #+#             */
+/*   Updated: 2024/09/21 17:11:41 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+int ft_len_word(char const *s, char c, int start)
 {
-	int	i;
-	int	j;
-	int	x;
-	char **str = (char **)malloc (sizeof(s));
+	int i;
 
 	i = 0;
-	j = 0;
-	x = 0;
-	while (s[x] != c)
+	while (s[start] != '\0')
 	{
-		str[i][j] = s[x];
-		x++;
-		j++;
-		if (s[x] == c)
-		{
-			str[i][j] = '\n';
+		if (s[start] == c)
+			return (i + 1);
+		i++;
+	}
+	return (i + 1);
+}
+
+int ft_cont_word(char const *s, char c)
+{
+	int i;
+
+	i = 0;
+	while (*s != '\0')
+	{
+		if (*s == c)
 			i++;
-			j = 0;
+		s++;
+	}
+	return (i);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char **str;
+	int i;
+	int j;
+
+	str = (char **)malloc (sizeof(char *) * ft_cont_word(s, c));
+	j = 0;
+	while (s[j] != '\0')
+	{
+		if (s[j] == c)
+		{
+			*str = (char *)malloc (sizeof(char) * ft_len_word(s, c, j));	
+			str++;		
+		}
+		j++;
+	}
+	i = 0;
+	j = 0;
+	while (s[j] != '\0')
+	{
+		if (s[j] == c)
+		{
+			str[i] = ft_strcpy(str[i], s);
 		}
 	}
-	return (str); 
+	return (str);
 }
 
 /*int main(void)
 {
     int i = 0;
     int j = 0;
-    char **str = ft_split("jejejejeje", 101);
+    char **str = ft_split("hola mundo", 32);
     while (str[i][j] != '\0')
     {
         write (1, &str[i][j], 1);
@@ -52,6 +98,9 @@ char	**ft_split(char const *s, char c)
             j = 0;
         }
     }
+	i = 0;
+	while (str[i])
+		free (str[i]);
     free (str);
     return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:46:17 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/14 14:09:59 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/21 12:23:04 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	*ft_calloc(size_t nmeb, size_t size)
 {
 	size_t	j;
-	char *i = (char *)malloc(sizeof(size *nmeb));
+	char	*i;
 
+	i = (char *)malloc (sizeof(size * nmeb));
 	j = 0;
 	if (nmeb <= 0 || size <= 0)
 		return (0);
