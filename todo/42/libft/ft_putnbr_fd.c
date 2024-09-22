@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 17:12:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/21 17:13:30 by mmembril         ###   ########.fr       */
+/*   Created: 2024/09/22 12:20:57 by mmembril          #+#    #+#             */
+/*   Updated: 2024/09/22 16:34:05 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+#include "libft.h"
+
+void ft_putnbr_fd(int n, int fd)
 {
-    
+    write (fd, &n, 1);
 }
