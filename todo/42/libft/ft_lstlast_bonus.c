@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 12:14:04 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/23 18:14:19 by mmembril         ###   ########.fr       */
+/*   Created: 2024/09/23 16:14:28 by mmembril          #+#    #+#             */
+/*   Updated: 2024/09/23 18:05:55 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-	{
-		write (fd, &s[i], 1);
+	while (lst[i])
 		i++;
-	}
+	return (lst[i - 1]);
 }
