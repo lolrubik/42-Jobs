@@ -12,7 +12,21 @@
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void ft_putnbr(int n, int fd)
 {
-    write (fd, &n, 1);
+    int i;
+    char *str;
+
+    i = 0;
+    str = ft_itoa(n);
+    while (str[i])
+    {
+        write (fd, &str[i], 1);
+        i++;
+    }
 }
+/*int main(void)
+{
+    ft_putnbr(5461);
+    return (0);
+}*/

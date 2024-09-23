@@ -65,7 +65,7 @@ char	*ft_itoa(int n)
 }
 /*int main(void)
 {
-    char *s = ft_itoa(4);
+    char *s = ft_itoa(-234);
     printf("%s", s);
     free (s);
     return (0);
