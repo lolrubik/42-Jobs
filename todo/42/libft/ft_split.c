@@ -20,7 +20,7 @@ static char **ft_dup(char **str,char const *s, char c, int m, int j, int i)
     return (str);
 }
 
-int ft_cont(char const *s, char c)
+static int ft_cont(char const *s, char c)
 {
     int i;
     int m;

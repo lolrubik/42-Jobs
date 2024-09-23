@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void ft_putnbr(int n, int fd)
+void ft_putnbr_fd(int n, int fd)
 {
     int i;
     char *str;
@@ -27,6 +27,6 @@ void ft_putnbr(int n, int fd)
 }
 /*int main(void)
 {
-    ft_putnbr(5461);
+    ft_putnbr_fd(5461);
     return (0);
 }*/
