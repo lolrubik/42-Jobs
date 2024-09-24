@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_isalpha(char *str)
 {
@@ -26,10 +27,9 @@ int	ft_isalpha(char *str)
 	return (1);
 }
 
-/*
-#include <stdio.h>
 int main(void)
 {
     char *str = "holamundo2";
-    printf("%d", ft_isalpha(str));
-}*/
+	ft_isalpha(str);
+//    printf("%d", ft_isalpha(str));
+}
