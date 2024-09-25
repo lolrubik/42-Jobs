@@ -127,13 +127,12 @@ int main(void)
     int i = 0;
 	if (!st)
 		return (0);
-    while (st[i])
+    while (st[i][0] != '\0')
     {
         printf("%s\n", st[i]);
-        free (st[i]);
+		free (st[i]);
         i++;
     }
-	free (st[i]);
     free (st);
     return (0);
 }
