@@ -3,24 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:34:27 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/11 12:05:40 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/26 10:59:52 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char *str)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] >= '\0')
-	{
-		if (str[i] < 32 || str[i] > 126)
-			return (0);
-	}
+	if (c < 32 || c > 126)
+		return (0);
 	return (1);
 }

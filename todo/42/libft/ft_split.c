@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static int ft_strmac(char **str, char const *s, char c)
+static int	ft_strmac(char **str, char const *s, char c)
 {
-	int j;
-	int m;
-	int i;
+	int	j;
+	int	m;
+	int	i;
 
 	i = 0;
 	m = 0;
@@ -33,7 +33,7 @@ static int ft_strmac(char **str, char const *s, char c)
 			while (s[i] == c)
 				i++;
 		}
-		else if(s[i + 1] == '\0')
+		else if (s[i + 1] == '\0')
 			str[j] = (char *)malloc(sizeof(char) * (m + 2));
 		i++;
 		m++;
@@ -81,7 +81,7 @@ static int	ft_cont(char const *s, char c)
 		m = 1;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == c || s[i + 1] == '\0')
 		{
 			while (s[i] == c)
 				i++;
@@ -97,7 +97,7 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	int		m;
 	int		j;
-	int i;
+	int		i;
 
 	m = ft_cont(s, c);
 	i = 0;
@@ -120,10 +120,11 @@ char	**ft_split(char const *s, char c)
 	str[j][0] = '\0';
 	return (ft_dup(str, s, c));
 }
-int main(void)
+/*int main(void)
 {
-    char *s = " hola mundo";
-    char **st = ft_split(s, 32);
+    char *s = "         ";
+	char c = 32;
+    char **st = ft_split(s, c);
     int i = 0;
 	if (!st)
 		return (0);
@@ -135,4 +136,4 @@ int main(void)
     }
     free (st);
     return (0);
-}
+}*/

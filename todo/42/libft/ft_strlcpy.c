@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:20:00 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/13 11:07:14 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:57:23 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (dest && src && size > 0)
@@ -23,12 +23,10 @@ char	*ft_strlcpy(char *dest, const char *src, size_t size)
 		i++;
 		size--;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }
-/*
-#include <stdio.h>
-int main()
+
+/*int main()
 {
     char dest[] = "hola mundo";
     const char src[] = "jefazo";
