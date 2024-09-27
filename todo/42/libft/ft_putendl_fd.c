@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 12:17:41 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/23 18:15:44 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/27 19:12:50 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_putendl_fd(char *s, int fd)
 		write (fd, &s[i], 1);
 		i++;
 	}
-	s[i] = '\0';
+	write (fd, "\n", 1);
 }

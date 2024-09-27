@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 12:20:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/23 18:15:13 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:36:24 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_putnbr_fd(int n, int fd)
 }
 /*int main(void)
 {
-    ft_putnbr_fd(5461);
+    ft_putnbr_fd(546);
     return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:05:56 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/23 18:27:32 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/27 19:11:29 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,11 @@ static int	ft_cont(char const *s, char c)
 	int	m;
 
 	i = 0;
-	if (s[i] == c)
+	while (s[i] == c)
+	{
 		m = 0;
-	else
-		m = 1;
+		i++;
+	}
 	while (s[i])
 	{
 		if (s[i] == c || s[i + 1] == '\0')
@@ -122,7 +123,7 @@ char	**ft_split(char const *s, char c)
 }
 /*int main(void)
 {
-    char *s = "         ";
+    char *s = "hola mundo";
 	char c = 32;
     char **st = ft_split(s, c);
     int i = 0;
