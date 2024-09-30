@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:46:17 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/21 12:23:04 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:42:06 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,18 @@
 
 void	*ft_calloc(size_t nmeb, size_t size)
 {
-	size_t	j;
-	char	*i;
+    char *ptr;
 
-	i = (char *)malloc (sizeof(size * nmeb));
-	j = 0;
-	if (nmeb <= 0 || size <= 0)
-		return (0);
-	if (i == 0)
-		return (0);
-	while (j < size)
-	{
-		i[j] = '\0';
-		j++;
-	}
-	return ((void *)i);
+    ptr = malloc(nmeb * size);
+    if (!ptr)
+        return (NULL);
+    ft_bzero(ptr, nmeb * size);
+    return(ptr);
 }
 
 /*int main()
 {
-    char *ptr = (char *)ft_calloc(sizeof(int), 5);
+    char *ptr = (char *)ft_calloc(sizeof(char), 0);
     printf("%s", ptr);
     free(ptr);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:36:04 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/27 20:02:38 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:24:41 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ char	*ft_itoa(int n)
 	str = ft_int_to_char(m, c, i);
 	return (str);
 }
-int main(void)
+/*int main(void)
 {
     char *s = ft_itoa(-2147483647);
     printf("%s", s);
     free (s);
     return (0);
-}
+}*/
