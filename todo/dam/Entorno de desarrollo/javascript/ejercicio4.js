@@ -5,6 +5,6 @@ b = Number(prompt('Introduzca b: '));
 c = Number(prompt('Introduzca c: '));
 
 if (a < 0)
-    console.log(b * c);
+    console.log(a * b * c);
 else 
     console.log(a + b + c);
