@@ -6,13 +6,13 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:16:42 by marco             #+#    #+#             */
-/*   Updated: 2024/09/26 10:22:10 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/30 18:41:25 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_lst **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	int	i;
 

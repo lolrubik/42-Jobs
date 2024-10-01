@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:20:00 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/26 12:57:23 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/30 18:51:37 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
+	unsigned int	j;
 	size_t	i;
 
-	i = 0;
-	while (dest && src && size > 0)
+	j = 0;
+	i = ft_strlen((char *)src);
+	if (size != 0)
 	{
-		dest[i] = src[i];
-		i++;
-		size--;
+		while (src[i] && j < (size - 1))
+		{
+			dest[j] = src[j];
+			j++;
+		}
+		dest[j] = '\0';
 	}
 	return (i);
 }
-
-/*int main()
+/*
+int main()
 {
     char dest[] = "hola mundo";
     const char src[] = "jefazo";
-    printf("%s", ft_strlcpy(dest, src, 4));
+    printf("%i", (int)ft_strlcpy(dest, src, 4));
     return (0);
 }*/

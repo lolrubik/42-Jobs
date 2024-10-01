@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:46:25 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/30 13:26:43 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/30 18:28:32 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 int	ft_tolower(int c)
 {
-	if (c <= 122 && c >= 97)
-		return (c);
-	if (c <= 90 && c >= 65)
+	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
-	return (0);
+	else
+		return (c);
 }
 /*int main()
 {
-	char c = 'D';
+	char c = ' ';
 	c = (char)ft_tolower((int)c);
 	printf("%c", c);
 	return (0);

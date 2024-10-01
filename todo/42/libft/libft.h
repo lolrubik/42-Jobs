@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/26 12:58:40 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/30 18:41:15 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,14 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+void		ft_lstclear(t_list **lst, void (*del)(void *));
+void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstiter(t_list *lst, void (*f)(void *));
+t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstnew(void *content);
+int			ft_lstsize(t_list *lst);
+void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 #endif

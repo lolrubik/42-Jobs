@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:39 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/30 13:32:19 by marco            ###   ########.fr       */
+/*   Updated: 2024/09/30 18:29:36 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 int	ft_toupper(int c)
 {
-	if (c <= 90 && c >= 65)
-		return (c);
-	if (c <= 122 && c >= 97)
-	{
+	if (c <= 'z' && c >= 'a')
 		return (c - 32);
-	}
-	return (0);
+	else
+		return (c);
 }
 
-int main()
+/*int main()
 {
-	char c = 32;
+	char c = 'd';
 	c = (char)ft_toupper((int)c);
     printf("%c", c);
     return (0);
-}
+}*/
