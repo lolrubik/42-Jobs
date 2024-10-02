@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:12:01 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/21 12:21:30 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:45:04 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,26 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	d = dest;
 	s = src;
-	if (d <= s)
+	if(d[i] && s[i])
 	{
-		while (n > 0)
+		if (d <= s)
 		{
-			d[i] = s[i];
-			i++;
-			n--;
+			while (n > 0)
+			{
+				d[i] = s[i];
+				i++;
+				n--;
+			}
 		}
+		else
+		{
+			ft_memcpy(dest, src, n);
+		}
+		return (dest);
 	}
-	else
-	{
-		ft_memcpy(dest, src, n);
-	}
-	return (dest);
+	return (NULL);
 }
-/*#include <stdio.h>
-int main()
+/*int main()
 {
     char dest[] = "this is a test";
     const char src[] = "this is is a test";

@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:43:48 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/26 12:59:27 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/02 09:27:15 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	j = 0;
 	i = 0;
@@ -30,12 +30,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (i);
 }
-/*
-int main()
+
+/*int main()
 {
     char dest[] = "hola ";
     const char src[] = "mundo";
-    printf("%s", ft_strlcat(dest, src, 5));
+    printf("%d", (int)ft_strlcat(dest, src, 5));
     return (0);
-}
-*/
+}*/
