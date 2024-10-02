@@ -3,67 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:36:04 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/30 12:24:41 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/02 16:43:12 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-static char	*ft_int_to_char(int m, int n, int i)
+static int	countDigit(long int n)
 {
-	char	*str;
+	int	count;
 
-	str = malloc(sizeof(char) * (m + 1));
-	if (!str)
-		return (NULL);
-	if (n == -2147483648)
+	count = 0;
+	if (n == 0)
+		count = 1;
+	else
 	{
-		str = "-2147483648";
-		return (str);
+		if (n < 0)
+		{
+			n *= -1;
+			count++;
+		}
+		while (n > 0)
+		{
+			n /= 10;
+			count++;
+		}
 	}
-	while (!(n > -10 && n < 10))
-	{
-		str[m - 1] = (n % 10) + '0';
-		m--;
-		n = n / 10;
-	}
-	if (n > -10 || n < 10)
-		str[m - 1] = n + '0';
-	if (i == 1)
-		str[m - 2] = '-';
-	return (str);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	long		c;
-	long		m;
-	long		i;
+	char		*str;
+	int			cont;
+	long int	nbr;
 
-	m = 1;
-	i = 0;
-	if (n < 0)
+	nbr = n;
+	cont = countDigit(nbr);
+	str = ft_calloc(sizeof(char), cont + 1);
+	if (!str)
+		return (NULL);
+	str[cont--] = '\0';
+	if (nbr == 0)
+		str[0] = '0';
+	if (nbr < 0)
 	{
-		m++;
-		i = 1;
+		str[0] = '-';
+		nbr *= -1;
 	}
-	c = n;
-	while (!(n > -10 && n < 10))
+	while (nbr > 0)
 	{
-		m++;
-		n /= 10;
+		str[cont--] = nbr % 10 + '0';
+		nbr /= 10;
 	}
-	str = ft_int_to_char(m, c, i);
 	return (str);
 }
-/*int main(void)
-{
-    char *s = ft_itoa(-2147483647);
-    printf("%s", s);
-    free (s);
-    return (0);
-}*/

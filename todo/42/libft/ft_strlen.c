@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:40:35 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/21 12:30:40 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/02 18:48:00 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
-
-/*#include <stdio.h>
+/*
 int main()
 {
 	char str[] = "khjcvghuiocgyucgyuioc gyic ";

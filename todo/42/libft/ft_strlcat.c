@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:43:48 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/02 09:27:15 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/02 19:35:11 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 
 	j = 0;
-	i = 0;
-	while (dst[i] != '\0')
-		i++;
-	while (src[j] && size > 0)
+	i = ft_strlen(dst);
+	if (!dst && !src)
+		return (0);
+	while (src[j] && size >= j)
 	{
 		dst[i] = src[j];
 		j++;
 		i++;
-		size--;
 	}
+	dst[i] = '\0';
 	return (i);
 }
-
-/*int main()
+/*
+int main()
 {
-    char dest[] = "hola ";
-    const char src[] = "mundo";
-    printf("%d", (int)ft_strlcat(dest, src, 5));
-    return (0);
+    char dest[14] = "a";
+    printf("%d", (int)ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+    write(1, "\n", 1);
+    write(1, dest, 14);
 }*/

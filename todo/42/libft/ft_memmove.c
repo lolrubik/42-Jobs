@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:12:01 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/02 12:45:04 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/02 18:05:51 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,27 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char			*d;
-	const unsigned char		*s;
-	int						i;
+	char	*d;
+	char	*s;
 
-	i = 0;
-	d = dest;
-	s = src;
-	if(d[i] && s[i])
+	d = (char *)dest;
+	s = (char *)src;
+	if (!s && !d)
+		return (NULL);
+	if (s < d)
 	{
-		if (d <= s)
-		{
-			while (n > 0)
-			{
-				d[i] = s[i];
-				i++;
-				n--;
-			}
-		}
-		else
-		{
-			ft_memcpy(dest, src, n);
-		}
-		return (dest);
+		while (n--)
+			d[n] = s[n];
 	}
-	return (NULL);
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
 }
 /*int main()
 {
-    char dest[] = "this is a test";
-    const char src[] = "this is is a test";
-    ft_memmove(dest, src, 10);
-    printf("%s", dest);
-    return (0);
+	char dest[] = "this is a test";
+	const char src[] = "this is is a test";
+	ft_memmove(dest, src, 10);
+	printf("%s", dest);
+	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:06:55 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/23 18:06:40 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:00:48 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	*lst->new;
+	new->next = *lst;
+	*lst = new;
 }
