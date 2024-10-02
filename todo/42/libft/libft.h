@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/02 15:58:45 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/02 21:33:44 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int			ft_tolower(int c);
 int			ft_toupper(int c);
-int			ft_strlen(char *str);
+size_t			ft_strlen(const char *str);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
