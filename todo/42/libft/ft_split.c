@@ -3,94 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:05:56 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/27 19:11:29 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:38:43 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_strmac(char **str, char const *s, char c)
+static int	ft_word(char const *str, char c, int i)
 {
-	int	j;
-	int	m;
-	int	i;
+	int	size;
 
-	i = 0;
-	m = 0;
-	j = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	size = 0;
+	while (str[i] && str[i] != c)
 	{
-		if (s[i] == c)
-		{
-			str[j] = (char *)malloc(sizeof(char) * (m + 1));
-			m = 0;
-			j++;
-			while (s[i] == c)
-				i++;
-		}
-		else if (s[i + 1] == '\0')
-			str[j] = (char *)malloc(sizeof(char) * (m + 2));
 		i++;
-		m++;
+		size++;
 	}
-	return (m);
+	return (size);
 }
 
-static char	**ft_dup(char **str, char const *s, char c)
+static void	ft_free(char **str, int j)
 {
-	int	m;
-	int	i;
-	int	j;
-
-	m = 0;
-	i = 0;
-	j = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
-	{
-		str[m][j] = s[i];
-		j++;
-		i++;
-		if (s[i] == c || s[i] == '\0')
-		{
-			str[m][j] = '\0';
-			j = 0;
-			m++;
-			while (s[i] == c)
-				i++;
-		}
-	}
-	return (str);
+	while (j-- > 0)
+		free(str[j]);
+	free(str);
 }
 
 static int	ft_cont(char const *s, char c)
 {
 	int	i;
-	int	m;
+	int	j;
 
 	i = 0;
-	while (s[i] == c)
-	{
-		m = 0;
-		i++;
-	}
+	j = 0;
 	while (s[i])
 	{
-		if (s[i] == c || s[i + 1] == '\0')
+		if (s[i] != c)
 		{
-			while (s[i] == c)
+			j++;
+			while (s[i] && s[i] != c)
 				i++;
-			m++;
 		}
-		i++;
+		else
+			i++;
 	}
-	return (m);
+	return (j);
 }
 
 char	**ft_split(char const *s, char c)
@@ -99,27 +59,27 @@ char	**ft_split(char const *s, char c)
 	int		m;
 	int		j;
 	int		i;
+	int		size;
 
 	m = ft_cont(s, c);
 	i = 0;
-	if (m == 0)
-		return (0);
 	str = (char **)malloc(sizeof(char *) * (m + 1));
 	j = 0;
-	m = ft_strmac(str, s, c);
-	while (s[i])
+	if (!str)
+		return (NULL);
+	while (j < m)
 	{
-		if (s[i] == c || s[i] == '\0')
-		{
-			j++;
-			while (s[i] == c)
-				i++;
-		}
-		i++;
+		while (s[i] == c)
+			i++;
+		size = ft_word(s, c, i);
+		str[j] = ft_substr(s, i, size);
+		if (!str[j])
+			return (ft_free(str, j), NULL);
+		i += size;
+		j++;
 	}
-	str[j] = (char *)malloc(sizeof(char));
-	str[j][0] = '\0';
-	return (ft_dup(str, s, c));
+	str[j] = 0;
+	return (str);
 }
 /*int main(void)
 {

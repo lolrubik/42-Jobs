@@ -3,63 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:09:08 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/22 15:34:46 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:47:22 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nbr(const char *nptr, int i, int l, int p)
+static int	ft_parity(int p)
 {
-	while (nptr[l] >= 48 && nptr[l] <= 57)
-	{
-		i += nptr[l] - 48;
-		l++;
-		if (nptr[l] <= 48 || nptr[l] >= 57)
-		{
-			if (p == 1)
-				return (-i);
-			return (i);
-		}
-		i *= 10;
-	}
-	return (i);
+	if (p % 2 == 0)
+		p = 1;
+	else
+		p = -1;
+	return (p);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	p;
-	int	l;
+	unsigned int	num;
+	int				i;
+	int				p;
 
+	num = 0;
 	i = 0;
-	l = 0;
 	p = 0;
-	while (nptr[l] != '\0')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		if (nptr[l] != '\n' && nptr[l] != '\t' && nptr[l] != '\v'
-			&& nptr[l] != '\f' && nptr[l] != '\r' && nptr[l] != ' ')
-		{
-			if (nptr[l] == '+' || nptr[l] == '-')
-			{
-				if (nptr[l] == '-')
-					p++;
-				if (nptr[l + 1] < 48 || nptr[l + 1] > 57)
-					return (0);
-				return (ft_nbr(nptr, i, (l + 1), p));
-			}
+		if (ft_isdigit(str[i]) == 0 && ft_isdigit(str[i + 1]) == 0)
 			return (0);
-		}
-		l++;
+		if (str[i] == '-')
+			p--;
+		i++;
 	}
-	return (0);
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	p = ft_parity(p);
+	return (p * num);
 }
 /*int main()
 {
-    const char nptr[] = "       -12345564";
-    printf("%d", ft_atoi(nptr));
-    return (0);
+	printf ("%d", ft_atoi("000074"));
 }*/
