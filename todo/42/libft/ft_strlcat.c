@@ -14,11 +14,11 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char *s;
+	char	*s;
 	size_t	i;
 	size_t	j;
-	size_t lend;
-	size_t lens;
+	size_t	lend;
+	size_t	lens;
 
 	s = (char *)src;
 	j = 0;

@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <limits.h>
 
-static int	countDigit(long int n)
+static int	count_digit(long int n)
 {
 	int	count;
 
@@ -43,7 +43,7 @@ char	*ft_itoa(int n)
 	long int	nbr;
 
 	nbr = n;
-	cont = countDigit(nbr);
+	cont = count_digit(nbr);
 	str = ft_calloc(sizeof(char), cont + 1);
 	if (!str)
 		return (NULL);

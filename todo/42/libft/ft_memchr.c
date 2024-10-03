@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:12:56 by mmembril          #+#    #+#             */
-/*   Updated: 2024/09/13 11:49:32 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/03 09:56:19 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned const char	*a;
-	int					i;
+	unsigned char	*str;
+	unsigned char	a;
+	size_t			i;
 
 	i = 0;
-	a = s;
-	while (n > 0 && a[i])
+	str = (unsigned char *)s;
+	a = (unsigned char)c;
+	while (n > i)
 	{
-		if (a[i] == c)
-			return ((void *)s);
+		if (*str == a)
+			return (str);
 		i++;
-		n--;
+		str++;
 	}
-	return (0);
+	return (NULL);
 }
-/*#include <stdio.h>
-int main()
+/*int main()
 {
     char s[] = "holza mundo con z";
     printf("%p", ft_memchr(s, 122, 5));
