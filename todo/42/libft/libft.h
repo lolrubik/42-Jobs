@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/03 16:49:13 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/04 17:21:40 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
 typedef struct s_list
 {
-	struct s_list	*next;
 	void			*content;
+	struct s_list	*next;
 }					t_list;
 
 void				ft_lstadd_back(t_list **lst, t_list *new);

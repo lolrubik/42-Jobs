@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:05:56 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/03 16:38:43 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/04 20:45:58 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		size = ft_word(s, c, i);
 		str[j] = ft_substr(s, i, size);
-		if (!str[j])
+		if (!str[j])	
 			return (ft_free(str, j), NULL);
 		i += size;
 		j++;
