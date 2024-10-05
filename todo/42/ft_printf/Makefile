@@ -1,8 +1,5 @@
-SRCS			=  ft_printf.c  
+SRCS			=  ft_printf.c ft_printfutils.c ft_printfutils2.c
 OBJS			= $(SRCS:.c=.o)
-
-BONUS			=  
-BONUS_OBJS		= $(BONUS:.c=.o)
 
 CC				= cc
 RM				= rm -f
@@ -16,14 +13,11 @@ $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				$(RM) $(OBJS)
 
 fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)
-
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 					
-.PHONY:			all clean fclean re bonus
+.PHONY:			all clean fclean re

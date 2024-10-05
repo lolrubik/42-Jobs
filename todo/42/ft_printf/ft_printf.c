@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/05 14:00:54 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/06 00:21:10 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,24 @@ int ft_printf(char const *str, ...)
     while (str[i])
     {
         if (str[i] == '%')
-            len += ft_type(str[i++], args);
+        {
+            i++;
+            len += ft_type(str[i], args);
+        }
         else
             len += ft_putchar_fd(str[i], 1);
         i++;
     }
     va_end(args);
     return (len);
+}
+
+int main()
+{
+    int s = 5;
+    int len;
+
+    len = ft_printf("%i\n", s);
+    ft_printf("%d", len);
+    return (0);
 }

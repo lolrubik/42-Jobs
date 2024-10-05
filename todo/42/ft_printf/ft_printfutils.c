@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfutils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:06:26 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/05 14:00:58 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/06 00:16:38 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,33 @@ int	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		ft_putchar_fd(n + '0', fd);
-    return (1);
+    return (ft_cont_numbers(n));
 }
 
 int	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
+	int len;
 
 	i = 0;
+	len = 0;
 	while (s[i])
 	{
-		write (fd, &s[i], 1);
+		len += ft_putchar_fd(s[i], fd);
 		i++;
 	}
-    return (1);
+	ft_putchar_fd('\0', fd);
+    return (len);
+}
+
+int ft_remove_signed(int n, int fd)
+{
+	int len;
+
+	if (n < 0)
+		n *= -1;
+	len = ft_putnbr_fd(n, fd);
+	return (len);
 }
 
 int ft_type(char c, va_list args)
@@ -60,17 +73,18 @@ int ft_type(char c, va_list args)
 
     len = 0;
     if (c == 'c')
-        len += ft_putchar_fd(args, 1);
+        len += ft_putchar_fd(va_arg(args, int),  1);
     else if (c == 's')
-        len += ft_putstr_fd(args, 1);
-    else if (c == 'p')
-    else if (c == 'd')
-        len += ft_putnbr_fd(args, 1);
-    else if (c == 'i')
-
+        len += ft_putstr_fd(va_arg(args, char *),  1);
+    //else if (c == 'p')
+    else if (c == 'd' || c == 'i')
+        len += ft_putnbr_fd(va_arg(args, int), 1);
     else if (c == 'u')
+		len += ft_remove_signed(va_arg(args, int), 1);
     else if (c == 'x')
+		len += ft_printhex(va_arg(args, unsigned int), "0123456789abcdef");
     else if (c == 'X')
+		len += ft_printhex(va_arg(args, unsigned int), "0123456789ABCDEF");
     else if (c == '%')
         len += ft_putchar_fd('%', 1);
     return (len);

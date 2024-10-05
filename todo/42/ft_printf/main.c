@@ -1,9 +1,11 @@
-#include <stdio.h>
+#include "libftprintf.h"
 
-int main()
+int main(void)
 {
-    int i;
+    int num = 5;
+    int len;
 
-    i = printf("Hola mundo %s\n", "borrego");
-    printf("%d", i);
+    len = printf("%p\n", num);
+    printf("%d", len);
+    return (0);
 }
