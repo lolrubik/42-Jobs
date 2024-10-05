@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/04 21:10:27 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/05 14:00:54 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,21 @@
 
 int ft_printf(char const *str, ...)
 {
-    va_list *ap;
-    int count;
+    int i;
+    int len;
+    va_list args;
 
-    va_start(ap, str);
-    count = 0;
+    va_start(args, str);
+    i = 0;
+    len = 0;
+    while (str[i])
+    {
+        if (str[i] == '%')
+            len += ft_type(str[i++], args);
+        else
+            len += ft_putchar_fd(str[i], 1);
+        i++;
+    }
+    va_end(args);
+    return (len);
 }
