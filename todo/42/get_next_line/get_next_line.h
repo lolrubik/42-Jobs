@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 21:18:21 by marco            ###   ########.fr       */
+/*   Created: 2024/10/06 21:25:49 by marco             #+#    #+#             */
+/*   Updated: 2024/10/06 21:28:50 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_printf(char const *str, ...)
-{
-	int		i;
-	int		len;
-	va_list	args;
+char *get_next_line(int fd);
 
-	va_start(args, str);
-	i = 0;
-	len = 0;
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			i++;
-			len += ft_type(str[i], args);
-		}
-		else
-			len += ft_putchar_fd(str[i], 1);
-		i++;
-	}
-	va_end(args);
-	return (len);
-}
+#endif
+
