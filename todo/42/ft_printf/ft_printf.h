@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:48:11 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 00:16:14 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/06 14:46:18 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-int ft_type(char c, va_list args);
+int	ft_printf(char const *str, ...);
+int	ft_type(char c, va_list args);
 int	ft_putchar_fd(char c, int fd);
 int	ft_putnbr_fd(int n, int fd);
 int	ft_putstr_fd(char *s, int fd);
-int ft_printhex(unsigned int num, char *base);
-int ft_cont_numbers(unsigned int i);
+int	ft_printhex(unsigned long long num, char *base);
+int	ft_cont_numbers(int i);
+int	ft_cont_numbers_hex(unsigned int i);
+int	ft_putchar_fd2(char c, int fd);
 
 #endif
