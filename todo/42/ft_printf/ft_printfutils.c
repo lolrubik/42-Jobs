@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:06:26 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 15:00:12 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/06 16:24:10 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		ft_putchar_fd('2', fd);
 		n = 147483648;
+		p = 2;
 	}
 	if (n < 0)
 	{
@@ -90,18 +91,16 @@ int	ft_type(char c, va_list args)
 		len += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
 	{
-		len += ft_putstr_fd("0x", 1);
-		len += ft_printhex(va_arg(args, unsigned long long),
-				"0123456789abcdef");
+		len += ft_get_ptr(va_arg(args, unsigned long long), 1);
 	}
 	else if (c == 'd' || c == 'i')
 		len += ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
 		len += ft_remove_signed(va_arg(args, unsigned int), 1);
 	else if (c == 'x')
-		len += ft_printhex(va_arg(args, unsigned int), "0123456789abcdef");
+		len += ft_printhex(va_arg(args, unsigned int), "0123456789abcdef", 1);
 	else if (c == 'X')
-		len += ft_printhex(va_arg(args, unsigned int), "0123456789ABCDEF");
+		len += ft_printhex(va_arg(args, unsigned int), "0123456789ABCDEF", 1);
 	else if (c == '%')
 		len += ft_putchar_fd('%', 1);
 	return (len);

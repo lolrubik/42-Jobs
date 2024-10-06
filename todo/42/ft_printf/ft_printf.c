@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 15:00:45 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/06 16:26:48 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ int	ft_printf(char const *str, ...)
 }
 //int main(void)
 //{
-//	int len = printf(" %u ", -1);
-//    int len2 = ft_printf(" %u ", -1);
+//    void *num = 0;
+//    
+//	int len = printf(" %p %p ", num, num);
+//    int len2 = ft_printf(" %p %p ",num, num);
 //
 //    printf("len = %d, lenmine = %d\n", len, len2);
 //	return (0);
