@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfutils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:06:26 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 16:24:10 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/07 12:28:31 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ int	ft_type(char c, va_list args)
 	else if (c == 's')
 		len += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
-	{
 		len += ft_get_ptr(va_arg(args, unsigned long long), 1);
-	}
 	else if (c == 'd' || c == 'i')
 		len += ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
