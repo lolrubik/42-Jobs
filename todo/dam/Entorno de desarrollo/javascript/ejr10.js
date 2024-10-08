@@ -1,11 +1,16 @@
-function reloj()
+function clock()
 {
-    ahora = getTime();
-    hora = ahora.getHours();
-    minuto = ahora.getMinutes();
-    segundo = ahora.getSeconds();
+    time = new Date();
+    hour = time.getHours();
+    minutes = time.getMinutes();
+    seconds = time.getSeconds();
 
-    time = hora + " : " + minuto + " : " + segundo;
-    console.log(time);
-    setTimeout(reloj(), 1000);
+    result = hour + " : " + minutes + " : " + seconds;
+    console.log(result);   
+    
 }
+
+function timer() {
+    
+}
+while(true) setTimeout(clock, 1000);;

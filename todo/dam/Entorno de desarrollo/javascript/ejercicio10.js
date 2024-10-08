@@ -2,7 +2,7 @@ const prompt = require('prompt-sync')({sigint: true});
 
 a = Number(prompt('Introduzca el dia: '));
 b = Number(prompt('Introduzca el numero del mes: '));
-c = Number(prompt('Introduzca el año: '));
+c = Number(prompt('Introduzca el anio: '));
 
 if ((a <= 31 && a > 0) && (b <= 12 && b >= 1) && (c >= 0 && c <= 2024))
 {
