@@ -9,6 +9,7 @@ public class ejercicio22 {
 		Scanner scan = new Scanner(System.in);
 		double hora = scan.nextDouble();
 		double dinero = salario * hora;
-		System.out.println(dinero);
+		double total = dinero * 5;
+		System.out.println(total);
 	}
 }

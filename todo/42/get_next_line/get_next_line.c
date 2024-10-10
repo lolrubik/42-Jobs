@@ -6,11 +6,17 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:08 by marco             #+#    #+#             */
-/*   Updated: 2024/10/06 21:29:04 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/10 09:12:53 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
 char *get_next_line(int fd)
 {
-    int i;
+    static char *buff;
+    char    *line;
+
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return (0);
 }
