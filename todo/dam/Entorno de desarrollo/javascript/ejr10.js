@@ -6,11 +6,8 @@ function clock()
     seconds = time.getSeconds();
 
     result = hour + " : " + minutes + " : " + seconds;
-    console.log(result);   
-    
+    console.log(result);
+    delete (result);
+    setTimeout(clock, 1000);  
 }
-
-function timer() {
-    
-}
-while(true) setTimeout(clock, 1000);;
+clock();
