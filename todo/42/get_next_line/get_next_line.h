@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:49 by marco             #+#    #+#             */
-/*   Updated: 2024/10/16 11:13:46 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/16 12:04:53 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <unistd.h>
 
 char    *get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
