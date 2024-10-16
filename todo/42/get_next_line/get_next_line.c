@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:08 by marco             #+#    #+#             */
-/*   Updated: 2024/10/16 12:36:12 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/16 22:53:32 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char	*ft_buffer(char *buff)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (buff[i] && buff[i] != '\n')
+		i++;
+	if (!buff[i])
+	{
+		free(buff);
+		return (NULL);
+	}
+	str = ft_calloc((ft_strlen(buff) - i + 1), sizeof(char));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (buff[i])
+		str[j++] = buff[i++];
+	free(buff);
+	return (str);
+}
 
 static char *ft_mountline(char *buff)
 {
@@ -18,11 +43,11 @@ static char *ft_mountline(char *buff)
     char *aux;
 
     i = 0;
-    if (!aux[i])
+    if (!buff[i])
         return (NULL);
-    while (aux[i] && aux[i] != '\n')
+    while (buff[i] && buff[i] != '\n')
         i++;
-    aux = malloc (sizeof(char) * i + 1);
+    aux = ft_calloc (sizeof(char), (i + 2));
     if (!aux)
         return (NULL);
     i = 0;
@@ -41,13 +66,13 @@ static char *ft_read(int fd, char *buff)
     int read_bytes;
     char *aux;
 
-    aux = malloc((BUFFER_SIZE + 2) * sizeof(char));
+    aux = ft_calloc((BUFFER_SIZE + 2), sizeof(char));
     if (!aux)
         return (NULL);
     read_bytes = 1;
-    while (!(ft_strchr((const char *)aux, '\n')) && read_bytes != 0)
+    while (!(ft_strchr(buff , '\n')) && read_bytes != 0)
     {
-        read_bytes = read (fd, aux, BUFFER_SIZE);
+        read_bytes = read(fd, aux, BUFFER_SIZE);
         if (read_bytes == -1)
         {
             if (buff != NULL)
@@ -73,20 +98,22 @@ char *get_next_line(int fd)
     if (!buff)
         return (NULL);
     line = ft_mountline(buff);
+    buff = ft_buffer(buff);
     return (line);
 }
 
 int main() {
-    int fd = open("pedro.txt", O_RDONLY);
+    int fd; 
     
+    fd = open("pedro.txt", O_RDONLY);
     if (fd == -1) {
-        perror("Error al abrir el archivo");
-        return 1;
+        printf("Error al abrir el archivo");
+        return (1);
     }
     printf("%s", get_next_line(fd));
 
     // Realiza operaciones con el archivo (lectura/escritura)
     
     close(fd); // Cerrar el archivo
-    return 0;
+    return (0);
 }

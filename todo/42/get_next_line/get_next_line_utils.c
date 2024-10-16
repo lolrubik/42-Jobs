@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:38 by marco             #+#    #+#             */
-/*   Updated: 2024/10/16 11:13:33 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/16 22:52:34 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,31 @@ size_t	ft_strlen(const char *str)
 		i++;
 	}
 	return (i);
+}
+
+void	*ft_calloc(size_t nmeb, size_t size)
+{
+	char	*ptr;
+
+	ptr = malloc(nmeb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmeb * size);
+	return (ptr);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*a;
+	int				i;
+
+	i = 0;
+	a = s;
+	while (n > 0)
+	{
+		a[i] = '\0';
+		i++;
+		n--;
+	}
+	s = a;
 }
