@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:38 by marco             #+#    #+#             */
-/*   Updated: 2024/10/16 22:52:34 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:49:38 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	*ft_calloc(size_t nmeb, size_t size)
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*a;
-	int				i;
+	unsigned char *a;
+	int i;
 
 	i = 0;
 	a = s;
