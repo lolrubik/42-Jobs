@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:08 by marco             #+#    #+#             */
-/*   Updated: 2024/10/27 19:19:15 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/10/27 19:56:59 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ static char	*ft_buffer(char *buff)
 	}
 	str = ft_calloc((ft_strlen(buff) - i + 1), sizeof(char));
 	if (!str)
+	{
+		free (buff);
 		return (NULL);
+	}
 	i++;
 	j = 0;
 	while (buff[i])
@@ -62,7 +65,6 @@ static char	*ft_mountline(char *buff)
 		i++;
 	}
 	aux[i] = '\0';
-	free (buff);	
 	return (aux);
 }
 
@@ -101,9 +103,14 @@ char	*get_next_line(int fd)
 		return (0);
 	if (!buff)
 		buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	buff = ft_read(fd, buff);
 	if (!buff)
 		return (NULL);
+	buff = ft_read(fd, buff);
+	if (!buff)
+	{
+		free (buff);
+		return (NULL);
+	}
 	line = ft_mountline(buff);
 	buff = ft_buffer(buff);
 	return (line);
@@ -120,7 +127,7 @@ char	*get_next_line(int fd)
 //        printf("Error al abrir el archivo");
 //        return (1);
 //    }
-//    for (int i = 0; i < 7; i++)
+//    for (int i = 0; i < 80; i++)
 //    {
 //		line = get_next_line(fd);
 //        printf("[%i] %s", i + 1, line);
