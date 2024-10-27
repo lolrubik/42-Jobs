@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:08 by marco             #+#    #+#             */
-/*   Updated: 2024/10/19 19:58:15 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/27 19:19:15 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ static char	*ft_mountline(char *buff)
 		i++;
 	}
 	if (buff[i] == '\n')
+	{
 		aux[i] = buff[i];
+		i++;
+	}
+	aux[i] = '\0';
+	free (buff);	
 	return (aux);
 }
 
@@ -96,8 +101,6 @@ char	*get_next_line(int fd)
 		return (0);
 	if (!buff)
 		buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!buff)
-		return (NULL);
 	buff = ft_read(fd, buff);
 	if (!buff)
 		return (NULL);
@@ -106,20 +109,22 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main()
+//int main()
 //{
 //    int fd;
+//	char *line;
 //
-//    fd = open("pedro.txt", O_RDONLY);
-//    if (fd == -1) {
+//    fd = open("empty.txt", O_RDONLY);
+//    if (fd == -1) 
+//	{
 //        printf("Error al abrir el archivo");
 //        return (1);
 //    }
-//    int i = 0;
-//    while (i < 3)
+//    for (int i = 0; i < 7; i++)
 //    {
-//        printf("%s", get_next_line(fd));
-//        i++;
+//		line = get_next_line(fd);
+//        printf("[%i] %s", i + 1, line);
+//		free (line);
 //    }
 //    // Realiza operaciones con el archivo (lectura/escritura)
 //

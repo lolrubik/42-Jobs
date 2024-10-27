@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:38 by marco             #+#    #+#             */
-/*   Updated: 2024/10/19 19:49:38 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/27 19:04:13 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	if (!s3)
-		return (0);
+		return (NULL);
 	while (s1[i])
 	{
 		s3[j] = s1[i];
@@ -36,6 +36,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 		j++;
 	}
+	s3[j] = '\0';
 	return (s3);
 }
 
@@ -80,8 +81,8 @@ void	*ft_calloc(size_t nmeb, size_t size)
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *a;
-	int i;
+	unsigned char	*a;
+	int				i;
 
 	i = 0;
 	a = s;
