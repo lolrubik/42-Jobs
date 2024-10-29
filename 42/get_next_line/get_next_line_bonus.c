@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 21:25:08 by marco             #+#    #+#             */
-/*   Updated: 2024/10/29 09:36:38 by marco            ###   ########.fr       */
+/*   Updated: 2024/10/29 12:22:07 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,23 +96,23 @@ static char	*ft_read(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*buff;
+	static char	*buff[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	if (!buff)
-		buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!buff)
+	if (!buff[fd])
+		buff[fd] = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buff[fd])
 		return (NULL);
-	buff = ft_read(fd, buff);
-	if (!buff)
+	buff[fd] = ft_read(fd, buff[fd]);
+	if (!buff[fd])
 	{
-		free (buff);
+		free (buff[fd]);
 		return (NULL);
 	}
-	line = ft_mountline(buff);
-	buff = ft_buffer(buff);
+	line = ft_mountline(buff[fd]);
+	buff[fd] = ft_buffer(buff[fd]);
 	return (line);
 }
 
