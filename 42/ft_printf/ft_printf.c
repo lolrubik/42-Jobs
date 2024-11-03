@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/07 12:31:43 by marco            ###   ########.fr       */
+/*   Updated: 2024/11/03 19:59:39 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,12 @@ int	ft_printf(char const *str, ...)
 	}
 	va_end(args);
 	return (len);
+}
+
+int main(void)
+{
+	int i = 15;
+	printf("%x\n", i);
+	ft_printf("%x\n", i);
+	return (0);
 }
