@@ -1,27 +1,31 @@
 const prompt = require('prompt-sync')({sigint: true});
 
-let i = Number(prompt("Introduce la altura de la piramide"));
-let aux = 0;
-let k = 0;
-
-if (i > 0)
+function piramide(i)
 {
-    while (i > 0)
+    let aux = 0;
+    let k = 0;
+    if (i > 0)
     {
-        for (let j = i + (i - 1); j > 0; j--)
+        while (i > 0)
         {
-            while (aux > 0)
+            for (let j = i + (i - 1); j > 0; j--)
             {
-                process.stdout.write(' ');
-                aux--;
+                while (aux > 0)
+                {
+                    process.stdout.write(' ');
+                    aux--;
+                }
+                process.stdout.write('*');
             }
-            process.stdout.write('*');
+            i--;
+            k++;
+            aux = k;
+            console.log();
         }
-        i--;
-        k++;
-        aux = k;
-        console.log();
     }
+    else
+        console.log("Error");
 }
-else
-    console.log("Error");
+
+let i = Number(prompt("Introduce la altura de la piramide: "));
+piramide(i);
